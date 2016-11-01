@@ -1,30 +1,8 @@
-const { Component } = React;
-
-class Header extends Component {
-
-  constructor(props) {
-    super(props);
-    this.keyDown = this.keyDown.bind(this);
-  }
-  keyDown(event) {
-    if (event.keyCode === 13) {
-      this.props.addItem(ReactDOM.findDOMNode(this.refs.input).value);
-      console.log('add');
-    }
-  }
-  render() {
-    return (
-      <header className="header">
-        <h1>todos</h1>
-        <input ref="input" className="new-todo" placeholder="What needs to be done?" autoFocus onKeyDown={this.keyDown}/>
-      </header>
-    );
-  }
-}
-
-Header.propTypes = {
-  addItem: React.PropTypes.func.isRequired
-}
+import React, {
+  Component,
+} from 'react';
+import ReactDOM from 'react-dom';
+import Header from './header';
 
 class Main extends Component {
   render() {
